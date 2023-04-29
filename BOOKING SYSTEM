@@ -1,0 +1,50 @@
+print("Welcome to Cagayan Electric Power and Light Company, Inc.(CEPALCO) Online pay")
+balance = 4400
+while True:
+  try:
+    print("Would you like to pay your electricity bills?")
+    choice = input("[YES]Yes or [NO]No: ")
+    if choice == "YES" or choice == "Yes" or choice == "yes":
+
+        f_name = input("Enter your name: ")
+        address = input("Enter your address: ")
+        print("Customer:", f_name)
+        print("Address:", address)
+        print("Transaction Date 11/28/2022")
+        print("Total amount due: ", balance)
+        print("Due date on 12/1/2022")
+        cash = float(input("enter cash amount: "))
+        if cash >= balance:
+            print("You are fully paid, enjoy your electricity")
+            print("==========================================")
+            print("Customer:", f_name)
+            print("Address:", address)
+            print("Payment:", cash)
+            print("Your balance is:", 0)
+            print("Date of transaction: 11/28/2022")
+            print("==========================================")
+            cash -= balance
+            print("Change ", cash)
+            break
+        elif cash <= balance:
+            balance = balance - cash
+            print("Your remaining balance is: ", balance)
+            check = input("Do you want to proceed with the transaction again? enter Y to restart or another key to end: ")
+            if check.upper() == "Y":
+                continue
+            print("YOU HAVE OVERDUE BILL/S. PLS PAY THIS/THESE (OVERDUE BILL/S")
+            print("TO AVOID BEING ISSUED W/ DISCONNECTION NOTICE.")
+            print("PLS DISREGARD THIS NOTICE IF PAID ALREADY.")
+            print("==========================================")
+            print("Customer:", f_name)
+            print("Address:" , address)
+            print("Payment:", cash)
+            print("Your balance is:" ,balance)
+            print("Date of transaction: 11/28/2022")
+            print("==========================================")
+            break
+    elif choice == "no" or choice == "NO" or choice == "No":
+        print("Have a nice day!")
+        break
+  except ValueError:
+      print("Invalid!")
